@@ -1,69 +1,62 @@
 ---
-title: Preparing the environment
+title: Preparing the Environment
 description: Initializing a new Java Gradle project
 stepNumber: 1
 short: Setup
 ---
 
-First, you must initialize a Java gradle project the way you prefer, for example by using the `gradle init` command:
+Follow these steps to prepare your project:
 
-```bash
-# For using Gradle with Groovy scripts
-gradle init --type basic --dsl groovy
+1.  Initialize a Java Gradle project the way you prefer. For example, you can do this by using the `gradle init` command: 
 
-# For using Gradle with Kotlin scripts
-gradle init --type basic --dsl kotlin
-```
+        # For using Gradle with Groovy scripts
+        gradle init --type basic --dsl groovy
 
-Second, you just need to apply the `java` plugin inside the `build.gradle` file:
+        # For using Gradle with Kotlin scripts
+        gradle init --type basic --dsl kotlin
 
-```groovy gradle
-plugins {
-    id 'java'
-}
-```
+2.  Apply the `java` plugin inside the `build.gradle` file:
 
-```kotlin kotlin-dsl
-plugins {
-    java
-    kotlin("jvm") version "1.3.10"
-}
-```
+        # Groovy
+        plugins {
+            id 'java'
+        }
 
-Third, add a `repositories` block to your project's `build.gradle` to use the Liferay Public Snapshots repository:
+        # Kotlin
+        plugins {
+            java
+            kotlin("jvm") version "1.3.10"
+        }
 
-```groovy gradle
-repositories {
-    mavenCentral()
+3.  Add a `repositories` block to your project's `build.gradle` to use the Liferay Public Snapshots repository:
 
-    maven {
-        url "https://repository-cdn.liferay.com/nexus/content/groups/public"
-    }
-}
-```
+        # Groovy
+        repositories {
+            mavenCentral()
 
-```kotlin kotlin-dsl
-repositories {
-    mavenCentral()
+            maven {
+                url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+            }
+        }
 
-    maven("https://repository-cdn.liferay.com/nexus/content/groups/public")
-}
-```
+        # Kotlin
+        repositories {
+            mavenCentral()
 
-Finally, create a `dependencies` block in the project's `build.gradle` and add Apio Architect API dependency:
+            maven("https://repository-cdn.liferay.com/nexus/content/groups/public")
+        }
 
-```groovy gradle
-dependencies {
-    implementation group: "com.liferay", name: "com.liferay.apio.architect.api", version: "2.0.0-20181212.154022-16"
-}
-```
+4.  Create a `dependencies` block in the project's `build.gradle` and add the Apio Architect API dependency: 
 
-```kotlin kotlin-dsl
-dependencies {
-    // These two dependencies are needed if you want
-    // to develop your APIs with Kotlin
-    implementation(kotlin("stdlib"))
-    implementation(kotlin("osgi-bundle"))
-    implementation("com.liferay:com.liferay.apio.architect.api:2.0.0-20181212.154022-16")
-}
-```
+        # Groovy
+        dependencies {
+            implementation group: "com.liferay", name: "com.liferay.apio.architect.api", version: "2.0.0-20181212.154022-16"
+        }
+
+        # Kotlin
+        dependencies {
+            // These dependencies are needed to develop your APIs with Kotlin
+            implementation(kotlin("stdlib"))
+            implementation(kotlin("osgi-bundle"))
+            implementation("com.liferay:com.liferay.apio.architect.api:2.0.0-20181212.154022-16")
+        }
