@@ -1,5 +1,5 @@
 ---
-title: Running the example
+title: Running the Example
 description: Run the OSGi container
 stepNumber: 6
 short: Run

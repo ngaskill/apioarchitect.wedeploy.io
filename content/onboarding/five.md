@@ -115,7 +115,7 @@ TODO: Remove the need for `javax.servlet` by making a credentials' provider not 
 
         }
 
-5.  Now you must tell Gradle how to run an OSGi container with both Apio Architect and your example. First, create an `example.bndrun` file in your project's root directory with the following content: 
+5.  Now you must tell Gradle how to run an OSGi container with Apio Architect and your example. First, create the following `example.bndrun` file in your project's root directory: 
 
         -runee: JavaSE-1.8
 
@@ -131,7 +131,7 @@ TODO: Remove the need for `javax.servlet` by making a credentials' provider not 
 
         -runsystemcapabilities: ${native_capability}
 
-6.  Add all the `runtime` dependencies to your project's `build.gradle` `dependencies` block:
+6.  Add these `runtime` dependencies to the `dependencies` block in your project's `build.gradle`: 
 
         // Groovy
         dependencies {

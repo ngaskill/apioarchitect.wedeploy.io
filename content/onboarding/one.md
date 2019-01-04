@@ -7,7 +7,7 @@ short: Setup
 
 Follow these steps to prepare your project:
 
-1.  Initialize a Java Gradle project the way you prefer. For example, you can do this by using the `gradle init` command: 
+1.  Initialize a Java Gradle project the way you prefer. For example, you can do this by using the `gradle init` command for Groovy or Kotlin. Run the command that corresponds to the language you want to use for your project: 
 
         # For using Gradle with Groovy scripts
         gradle init --type basic --dsl groovy
@@ -15,7 +15,9 @@ Follow these steps to prepare your project:
         # For using Gradle with Kotlin scripts
         gradle init --type basic --dsl kotlin
 
-2.  Apply the `java` plugin inside the `build.gradle` file:
+    Note that the rest of the steps in this guide contain example code for both Groovy/Java and Kotlin. You should use the code that corresponds to the language specified by your `gradle init` command. 
+
+2.  Apply the `java` plugin in your project's `build.gradle` file:
 
         // Groovy
         plugins {
@@ -28,7 +30,7 @@ Follow these steps to prepare your project:
             kotlin("jvm") version "1.3.10"
         }
 
-3.  Add a `repositories` block to your project's `build.gradle` to use the Liferay Public Snapshots repository:
+3.  Configure your project to use the Liferay Public Snapshots repository by adding this `repositories` block in your project's `build.gradle` :
 
         // Groovy
         repositories {
@@ -46,7 +48,7 @@ Follow these steps to prepare your project:
             maven("https://repository-cdn.liferay.com/nexus/content/groups/public")
         }
 
-4.  Create a `dependencies` block in the project's `build.gradle` and add the Apio Architect API dependency: 
+4.  Add the Apio Architect API dependency to your project by adding this `dependencies` block in your project's `build.gradle`: 
 
         // Groovy
         dependencies {

@@ -1,13 +1,17 @@
 ---
 title: Creating a Resource's Type
-description: Starting our contract
+description: Starting your contract
 stepNumber: 2
 short: Type
 ---
 
-When defining an API, start by defining and exposing a resource model. Follow these steps to do so: 
+To define an API in Apio Architect, start by defining and exposing a resource model. Follow these steps to do so: 
 
-1.  Define the resource model that the API will expose. In Apio Architect, you do this by creating an interface and using the `@Type` annotation to specify the model's type. Any methods in the interface that return a field must be annotated with `@Field` and the field's name. You must also use the `@Id` annotation with the method that returns the type's ID.
+1.  Define the resource model that the API will expose. In Apio Architect, you do this by creating an interface with the following annotations: 
+
+    -   `@Type("InsertYourType")`: On the interface's declaration
+    -   `@Field("insertYourFieldName")`: On methods that return a field
+    -   `@Id`: On the method that returns the type's ID
 
     For example, to create an example `Person` resource, create the following `Person` interface inside `src/main/java/apio/architect/example`. The interface's `@Type` annotation defines the `Person` type. The `getName` and `getJobTitle` methods are annotated with `@Field` and define the `name` and `jobTitle` fields, respectively. And since the `getId` method will return the `Person`'s ID, that method is annotated with `@Id`: 
 
@@ -32,6 +36,7 @@ When defining an API, start by defining and exposing a resource model. Follow th
             long getId();
 
         }
+
 
         // Kotlin
         @Type("Person")
@@ -70,6 +75,7 @@ When defining an API, start by defining and exposing a resource model. Follow th
                 }
             };
         }
+
 
         // Kotlin
         fun Person.Companion.of(id: Long, name: String, jobTitle: String) = object : Person {

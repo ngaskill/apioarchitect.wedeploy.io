@@ -5,7 +5,7 @@ stepNumber: 4
 short: Bundle
 ---
 
-Now you're ready to create the OSGi bundle for your API. Follow these steps to do so:
+Now you're ready to create the OSGi bundle for your API. Follow these steps to do so: 
 
 1.  Add the OSGi annotations dependency to the `dependencies` block in your `build.gradle`:
 
@@ -46,7 +46,7 @@ Now you're ready to create the OSGi bundle for your API. Follow these steps to d
             ...
         }
 
-3.  Add the Bndtools Gradle plugin to your `build.gradle` file. When your API is packaged as a JAR file, Bndtools ensures the JAR file is also an OSGi bundle: 
+3.  Add the Bndtools Gradle plugin to your `build.gradle` file. When you package your API in a JAR file, Bndtools ensures that JAR file is also an OSGi bundle: 
 
         // Groovy
         plugins {
@@ -61,7 +61,7 @@ Now you're ready to create the OSGi bundle for your API. Follow these steps to d
             id("biz.aQute.bnd.builder").version("4.1.0")
         }
 
-4.  Ensure that the JAR file's manifest (`MANIFEST.MF`) contains the OSGi bundle's name, symbolic name, and version. To do this, add the following to your `build.gradle` file. This ensures that every time you run the `jar` task in the project, the manifest contains the necessary BND properties: 
+4.  The JAR file's manifest (`MANIFEST.MF`) must contain the OSGi bundle's name, symbolic name, and version. To ensure that the manifest contains these properties every time you run the `jar` task in your project, add the following to your `build.gradle` file: 
 
         // Groovy
         jar {
@@ -85,22 +85,22 @@ Now you're ready to create the OSGi bundle for your API. Follow these steps to d
             }
         }
 
-To test this out, run `gradlew jar` and then execute this command: 
+5.  To test this, run `gradlew jar` and then execute this command: 
 
-    unzip -p build/libs/*.jar META-INF/MANIFEST.MF
+        unzip -p build/libs/*.jar META-INF/MANIFEST.MF
 
-You should see an output similar to this: 
+    You should see an output similar to this: 
 
-    Manifest-Version: 1.0
-    Bnd-LastModified: 1545147628012
-    Bundle-ManifestVersion: 2
-    Bundle-Name: Apio Architect Example
-    Bundle-SymbolicName: apio.architect.sample
-    Bundle-Version: 1.0.0
-    Created-By: 1.8.0_181 (Oracle Corporation)
-    Import-Package: com.liferay.apio.architect.annotation;version="[2.0,3)",com.liferay.apio.architect.identifier;version="[2.0,3)",com.liferay.apio.architect.router;version="[2.0,3)"
-    Private-Package: apio.architect.example
-    Provide-Capability: osgi.service;objectClass:List<String>="com.liferay.apio.architect.router.ActionRouter"
-    Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.component)(version>=1.3.0)(!(version>=2.0.0)))",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
-    Service-Component: OSGI-INF/apio.architect.example.PersonActionRouter.xml
-    Tool: Bnd-4.1.0.201810181252
+        Manifest-Version: 1.0
+        Bnd-LastModified: 1545147628012
+        Bundle-ManifestVersion: 2
+        Bundle-Name: Apio Architect Example
+        Bundle-SymbolicName: apio.architect.sample
+        Bundle-Version: 1.0.0
+        Created-By: 1.8.0_181 (Oracle Corporation)
+        Import-Package: com.liferay.apio.architect.annotation;version="[2.0,3)",com.liferay.apio.architect.identifier;version="[2.0,3)",com.liferay.apio.architect.router;version="[2.0,3)"
+        Private-Package: apio.architect.example
+        Provide-Capability: osgi.service;objectClass:List<String>="com.liferay.apio.architect.router.ActionRouter"
+        Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.component)(version>=1.3.0)(!(version>=2.0.0)))",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+        Service-Component: OSGI-INF/apio.architect.example.PersonActionRouter.xml
+        Tool: Bnd-4.1.0.201810181252
