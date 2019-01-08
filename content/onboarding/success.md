@@ -5,13 +5,11 @@ stepNumber: 6
 short: Run
 ---
 
-Now you're ready to run your example! To do so, execute this command from your project's root directory:
+Now you're ready to run your example! 
 
-```bash
-./gradlew run
-```
+If you followed the previous steps to generate an OSGi container, start it up by running `./gradlew run` in your project's root directory (this also deploys your API to that container). Otherwise, deploy your API's JAR file to your existing OSGi container. 
 
-Wait a few seconds for the container to start up, then try your API by calling your two endpoints:
+Wait a few seconds for the container to start up or your API deployment to complete, then try your API by calling your two endpoints:
 
 ```bash /person
 curl localhost:8080/api/person -H "Accept: application/json"
